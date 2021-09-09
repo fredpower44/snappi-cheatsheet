@@ -1,5 +1,7 @@
 # snappi-cheatsheet
 
+## snappi Objects (TODO)
+
 ## snappi Iterators
 
 snappi iterators are used to represent lists of snappi objects. They can be used similarly to lists in Python. Commonly used snappi iterators include snappi OTG FlowIter (cfg.flows) and PortIter (cfg.ports)

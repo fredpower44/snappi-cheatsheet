@@ -4,7 +4,9 @@
 
 snappi iterators are used to represent lists of snappi objects. They can be used similarly to lists in Python.
 
-* Adding item into iterator
+* <details>
+    <summary>Adding item into iterator</summary>
+    
     ```
     iter = {iterator}.{item1}().{item2}().{item3}() ...
     ```
@@ -27,8 +29,11 @@ snappi iterators are used to represent lists of snappi objects. They can be used
         cfg.flows.append(f)
         ```
         </details>
+    </details>
 
-* Accessing item in iterator
+* <details>
+    <summary>Accessing item in iterator</summary>
+
     ```
     item = {iterator}[0]
     ```
@@ -54,8 +59,11 @@ snappi iterators are used to represent lists of snappi objects. They can be used
         f1, f2, f3 = cfg.flows.flow(name='f1').flow(name='f2').flow(name='f3')
         ```
         </details>
+    </details>
 
-* Removing item(s) from iterator
+* <details>
+    <summary>Removing item(s) from iterator</summary>
+
     ```
     {iterator}.remove({index}) # Removes object at iterator's index
     ```
@@ -79,3 +87,4 @@ snappi iterators are used to represent lists of snappi objects. They can be used
         cfg.ports.clear()
         ```
         </details>
+    </details>

@@ -79,7 +79,7 @@ snappi iterators are used to represent lists of snappi objects. They can be used
         </details>
     or
     ```
-    {iterator}.clear() # Clears the iterator
+    {iterator}.clear() # Clears all objects in the iterator
     ```
     * <details>
         <summary>example: </summary>

@@ -9,7 +9,7 @@
 | **Code template** | **example** |
 | --- | --- |
 | `api = snappi.api()cfg = api.config()` | `api = snappi.api() cfg = api.config()` |
-|` api = snappi.api(ext='ixnetwork') cfg = api.config()` | `api = snappi.api(ext='trex') cfg = api.config()` |
+| `api = snappi.api(ext='ixnetwork') cfg = api.config()` | `api = snappi.api(ext='trex') cfg = api.config()` |
 
 ## Adding Ports/flows (or other snappi list objects)
 
@@ -42,10 +42,10 @@
 
 | **Code template** | **example** |
 | --- | --- |
-| `{flow}.tx_rx.port.tx\_name = {port name}` | `# flow f1 will transmit from port p1`<br>`f1.tx\_rx.port.tx\_name = 'p1'` |
-| `{flow}.tx\_rx.port.rx\_name = {port name}` | `# port p2 will receive from flow f1`<br>`f1.tx\_rx.port.rx\_name = 'p2'` |
+| `{flow}.tx_rx.port.tx_name = {port name}` | `# flow f1 will transmit from port p1`<br>`f1.tx_rx.port.tx_name = 'p1'` |
+| `{flow}.tx_rx.port.rx_name = {port name}` | `# port p2 will receive from flow f1`<br>`f1.tx_rx.port.rx_name = 'p2'` |
 | `{flow}.size.fixed = {packet size}` | `# flow f1 will send packets of fixed size 256 bytes`<br>`f1.size.fixed = 256` |
-| `{flow}.duration.fixed\_packets.packets = {num packets}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed\_packets.packets = 1000` |
+| `{flow}.duration.fixed_packets.packets = {num packets}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed_packets.packets = 1000` |
 | `{flow}.rate.pps = {packets per second}` | `# flow f1 will transmit at 100 packets per second`<br>`f1.rate.pps = 100` |
 
 ## Creating packets
@@ -62,42 +62,42 @@
 | `# for fixed header fields`<br>`{header}.{field}.value = {value}` | `eth1.src.value = '00:AA:00:00:04:00'`<br>`eth1.dst.value = '00:AA:00:00:00:AA'` |
 | `# for incrementing header fields`<br>`{header}.{field}.increment.start = {start}`<br>`{header}.{field}.increment.step = {step}`<br>`{header}.{field}.increment.count = {count}` | `ip1.src.increment.start = '10.0.0.1`<br>`'ip1.src.increment.step = '0.0.0.4'`<br>`ip1.src.increment.count = 100` |
 | `# for decrementing header fields`<br>`{header}.{field}.decrement.start = {start}`<br>`{header}.{field}.decrement.step = {step}`<br>`{header}.{field}.decrement.count = {count}` | `ip1.dst.decrement.start = '10.0.0.255'`<br>`ip1.dst.decrement.step = '0.0.0.1'`<br>`ip1.dst.decrement.count = 100` |
-| `# for value list header fields`<br>`{header}.{field}.values = [{val1},{val2}…]` | `udp1.dst\_port.values = [4000, 4044, 4060, 4074]`<br>`udp2.src\_port.values = [8000, 8044, 8060]` |
+| `# for value list header fields`<br>`{header}.{field}.values = [{val1},{val2}…]` | `udp1.dst_port.values = [4000, 4044, 4060, 4074]`<br>`udp2.src_port.values = [8000, 8044, 8060]` |
 
 ## Configuring captures
 
 | **Code template** | **example** |
 | --- | --- |
-| `cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port\_names = [{port1},{port2}…]` | `# configures captures on ports p1 and p2`<br>`cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port\_names = ['p1', 'p2']` |
+| `cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port_names = [{port1},{port2}…]` | `# configures captures on ports p1 and p2`<br>`cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port_names = ['p1', 'p2']` |
 
 ## pushing configuration
 
 | **Code template** | **example** |
 | --- | --- |
-| `api.set\_config({configuration})` | `api.set\_config(cfg)` |
+| `api.set_config({configuration})` | `api.set_config(cfg)` |
 
 ## Starting captures
 
 | **Code template** | **example** |
 | --- | --- |
-| `cs = api.capture\_state()`<br>`cs.state = cs.START`<br>`api.set\_capture\_state(cs)` | `cs = api.capture\_state()`<br>`cs.state = cs.START`<br>`api.set\_capture\_state(cs)` |
+| `cs = api.capture_state()`<br>`cs.state = cs.START`<br>`api.set_capture_state(cs)` | `cs = api.capture_state()`<br>`cs.state = cs.START`<br>`api.set_capture_state(cs)` |
 
 ## Starting Transmit
 
 | **Code template** | **example** |
 | --- | --- |
-| `ts = api.transmit\_state()`<br>`ts.state = ts.START`<br>`api.set\_transmit\_state(ts)` | `ts = api.transmit\_state()`<br>`ts.state = ts.START`<br>`api.set\_transmit\_state(ts)` |
+| `ts = api.transmit_state()`<br>`ts.state = ts.START`<br>`api.set_transmit_state(ts)` | `ts = api.transmit_state()`<br>`ts.state = ts.START`<br>`api.set_transmit_state(ts)` |
 
 ## FETCHING metrics
 
 | **Code template** | **example** |
 | --- | --- |
-| `req = api.metrics\_request()`<br>`req.port.port\_names = [{port1},{port2}…]`<br>`res = api.get\_metrics(req)` | `# res will contain port metrics for ports p1 and p2`<br>`req = api.metrics\_request()`<br>`req.port.port\_names = ['p1', 'p2']`<br>`res = api.get\_metrics(req)` |
+| `req = api.metrics_request()`<br>`req.port.port_names = [{port1},{port2}…]`<br>`res = api.get_metrics(req)` | `# res will contain port metrics for ports p1 and p2`<br>`req = api.metrics_request()`<br>`req.port.port_names = ['p1', 'p2']`<br>`res = api.get_metrics(req)` |
 
 ## FETCHING Captures
 
 | **Code template** | **example** |
 | --- | --- |
-| `req = api.capture\_request()`<br>`req.port\_name = {port\_name}`<br>`res = api.get\_capture(req)` | `# res will contain pcap bytestream of packets captured on port p1`<br>`req = api.capture\_request()`<br>`req.port\_name = 'p1'`<br>`res = api.get\_capture(req)` |
+| `req = api.capture_request()`<br>`req.port_name = {port_name}`<br>`res = api.get_capture(req)` | `# res will contain pcap bytestream of packets captured on port p1`<br>`req = api.capture_request()`<br>`req.port_name = 'p1'`<br>`res = api.get_capture(req)` |
 
 

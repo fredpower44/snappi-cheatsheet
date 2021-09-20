@@ -4,14 +4,14 @@
   **https://github.com/open-traffic-generator/snappi** |
 | --- |
 
-# Creating config
+## Creating config
 
 | **Code template** | **example** |
 | --- | --- |
 | `api = snappi.api()cfg = api.config()` | `api = snappi.api() cfg = api.config()` |
 |` api = snappi.api(ext='ixnetwork') cfg = api.config()` | `api = snappi.api(ext='trex') cfg = api.config()` |
 
-# Adding Ports/flows (or other snappi list objects)
+## Adding Ports/flows (or other snappi list objects)
 
 | **Code template** | **example** |
 | --- | --- |
@@ -22,14 +22,14 @@
 | `cfg.ports.append({port object})` | `p4 = p3.clone(); p4.name = 'p4'cfg.ports.append(p4)` |
 | `cfg.flows.append({flow object})` | `f4 = f3.clone(); f3.name = 'f4'cfg.flows.append(f4)` |
 
-# ACCESSING Ports/flows (or other snappi list objects)
+## ACCESSING Ports/flows (or other snappi list objects)
 
 | **Code template** | **example** |
 | --- | --- |
 | `a, b, c ... = cfg.ports # or cfg.flows` | `p1, p2, p3 = cfg.ports` |
 | `a = cfg.ports[-1] # or cfg.flows` | `flow = cfg.flows [-1]` |
 
-# Removing Ports/FLOWS (OR OTHER SNAPPI LIST OBJECTS)
+## Removing Ports/FLOWS (OR OTHER SNAPPI LIST OBJECTS)
 
 | **Code template** | **example** |
 | --- | --- |
@@ -38,7 +38,7 @@
 | `cfg.ports.clear()` | `cfg.ports.clear() # Removes all ports` |
 | `cfg.flows.clear()` | `cfg.flows.clear() # Removes all flows` |
 
-# Configuring FLows
+## Configuring FLows
 
 | **Code template** | **example** |
 | --- | --- |
@@ -48,56 +48,56 @@
 | `{flow}.duration.fixed\_packets.packets = {num packets}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed\_packets.packets = 1000` |
 | `{flow}.rate.pps = {packets per second}` | `# flow f1 will transmit at 100 packets per second`<br>`f1.rate.pps = 100` |
 
-# Creating packets
+## Creating packets
 
 | **Code template** | **example** |
 | --- | --- |
 | `{flow}.packet.ethernet().ipv4().udp()` | `# flow f1 will transmit ethernet/ipv4/udp packets`<br>`eth1,ip1,udp1 = f1.packet.ethernet().ipv4().udp()` |
 | `{flow}.packet.header().header()...` | `# flow f1 will transmit ethernet/ipv4/tcp packets`<br>`eth1,ip1,tcp1 = f1.packet.header().header().header()`<br>`eth1.choice = 'ethernet'; eth1.ethernet`<br>`ip1.choice = 'ipv4'; ip1.ipv4`<br>`tcp1.choice = 'tcp'; tcp1.tcp` |
 
-# Configuring packet headers
+## Configuring packet headers
 
 | **Code template** | **example** |
 | --- | --- |
-| **# for fixed header fields**  **{header}.{field}.value = {value}** | eth1.src.value = '00:AA:00:00:04:00'eth1.dst.value = '00:AA:00:00:00:AA' |
-| **# for incrementing header fields**  **{header}.{field}.increment.start = {start}**** {header}.{field}.increment.step = {step} ****{header}.{field}.increment.count = {count}** | ip1.src.increment.start = '10.0.0.1'ip1.src.increment.step = '0.0.0.4'ip1.src.increment.count = 100 |
-| **# for decrementing header fields**  **{header}.{field}.decrement.start = {start}**** {header}.{field}.decrement.step = {step} ****{header}.{field}.decrement.count = {count}** | ip1.dst.decrement.start = '10.0.0.255'ip1.dst.decrement.step = '0.0.0.1'ip1.dst.decrement.count = 100 |
-| **# for value list header fields** **{header}.{field}.values = [{val1},{val2}…]** | udp1.dst\_port.values = [4000, 4044, 4060, 4074]udp2.src\_port.values = [8000, 8044, 8060] |
+| `# for fixed header fields`<br>`{header}.{field}.value = {value}` | `eth1.src.value = '00:AA:00:00:04:00'`<br>`eth1.dst.value = '00:AA:00:00:00:AA'` |
+| `# for incrementing header fields`<br>`{header}.{field}.increment.start = {start}`<br>`{header}.{field}.increment.step = {step}`<br>`{header}.{field}.increment.count = {count}` | `ip1.src.increment.start = '10.0.0.1`<br>`'ip1.src.increment.step = '0.0.0.4'`<br>`ip1.src.increment.count = 100` |
+| `# for decrementing header fields`<br>`{header}.{field}.decrement.start = {start}`<br>`{header}.{field}.decrement.step = {step}`<br>`{header}.{field}.decrement.count = {count}` | `ip1.dst.decrement.start = '10.0.0.255'`<br>`ip1.dst.decrement.step = '0.0.0.1'`<br>`ip1.dst.decrement.count = 100` |
+| `# for value list header fields`<br>`{header}.{field}.values = [{val1},{val2}…]` | `udp1.dst\_port.values = [4000, 4044, 4060, 4074]`<br>`udp2.src\_port.values = [8000, 8044, 8060]` |
 
-# Configuring captures
-
-| **Code template** | **example** |
-| --- | --- |
-| cp = cfg.captures.capture(name='cp')[-1]cp.port\_names = [{port1},{port2}…] | **# configures captures on ports p1 and p2** cp = cfg.captures.capture(name='cp')[-1]cp.port\_names = ['p1', 'p2'] |
-
-# pushing configuration
+## Configuring captures
 
 | **Code template** | **example** |
 | --- | --- |
-| api.set\_config({configuration}) | api.set\_config(cfg) |
+| `cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port\_names = [{port1},{port2}…]` | `# configures captures on ports p1 and p2`<br>`cp = cfg.captures.capture(name='cp')[-1]`<br>`cp.port\_names = ['p1', 'p2']` |
 
-# Starting captures
-
-| **Code template** | **example** |
-| --- | --- |
-| cs = api.capture\_state()cs.state = cs.STARTapi.set\_capture\_state(cs) | cs = api.capture\_state()cs.state = cs.STARTapi.set\_capture\_state(cs) |
-
-# Starting Transmit
+## pushing configuration
 
 | **Code template** | **example** |
 | --- | --- |
-| ts = api.transmit\_state()ts.state = ts.STARTapi.set\_transmit\_state(ts) | ts = api.transmit\_state()ts.state = ts.STARTapi.set\_transmit\_state(ts) |
+| `api.set\_config({configuration})` | `api.set\_config(cfg)` |
 
-# FETCHING metrics
-
-| **Code template** | **example** |
-| --- | --- |
-| req = api.metrics\_request()req.port.port\_names = [{port1},{port2}…]res = api.get\_metrics(req) | **# res will contain port metrics for ports p1 and p2** req = api.metrics\_request()req.port.port\_names = ['p1', 'p2']res = api.get\_metrics(req) |
-
-# FETCHING Captures
+## Starting captures
 
 | **Code template** | **example** |
 | --- | --- |
-| req = api.capture\_request()req.port\_name = {port\_name}res = api.get\_capture(req) | **# res will contain pcap bytestream of packets captured on port p1** req = api.capture\_request()req.port\_name = 'p1'res = api.get\_capture(req) |
+| `cs = api.capture\_state()`<br>`cs.state = cs.START`<br>`api.set\_capture\_state(cs)` | `cs = api.capture\_state()`<br>`cs.state = cs.START`<br>`api.set\_capture\_state(cs)` |
 
-#
+## Starting Transmit
+
+| **Code template** | **example** |
+| --- | --- |
+| `ts = api.transmit\_state()`<br>`ts.state = ts.START`<br>`api.set\_transmit\_state(ts)` | `ts = api.transmit\_state()`<br>`ts.state = ts.START`<br>`api.set\_transmit\_state(ts)` |
+
+## FETCHING metrics
+
+| **Code template** | **example** |
+| --- | --- |
+| `req = api.metrics\_request()`<br>`req.port.port\_names = [{port1},{port2}…]`<br>`res = api.get\_metrics(req)` | `# res will contain port metrics for ports p1 and p2`<br>`req = api.metrics\_request()`<br>`req.port.port\_names = ['p1', 'p2']`<br>`res = api.get\_metrics(req)` |
+
+## FETCHING Captures
+
+| **Code template** | **example** |
+| --- | --- |
+| `req = api.capture\_request()`<br>`req.port\_name = {port\_name}`<br>`res = api.get\_capture(req)` | `# res will contain pcap bytestream of packets captured on port p1`<br>`req = api.capture\_request()`<br>`req.port\_name = 'p1'`<br>`res = api.get\_capture(req)` |
+
+

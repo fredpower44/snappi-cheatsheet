@@ -6,7 +6,7 @@
 
 ## Creating config
 
-| **Code template**<img width=300/> | **example** |
+| **Code template**<img width=250/> | **example** |
 | --- | --- |
 | `api = snappi.api()`<br>`cfg = api.config()` | `api = snappi.api()`<br>`cfg = api.config()` |
 | `api = snappi.api(ext='ixnetwork')`<br>`cfg = api.config()` | `api = snappi.api(ext='trex')`<br>`cfg = api.config()` |

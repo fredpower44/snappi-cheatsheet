@@ -33,27 +33,27 @@
 
 | **Code template** | **example** |
 | --- | --- |
-| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1').port(name='p2')`<br>`cfg.ports.remove(2) # Removes p2                         ` |
-| cfg.flows.remove({index}) | cfg.flows.remove(0) **# Removes first flow** |
-| cfg.ports.clear() | cfg.ports.clear() **# Removes all ports** |
-| cfg.flows.clear() | cfg.flows.clear() **# Removes all flows** |
+| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1').port(name='p2')`<br>`cfg.ports.remove(2) # Removes p2` |
+| `cfg.flows.remove({index})` | `cfg.flows.remove(0) # Removes first flow` |
+| `cfg.ports.clear()` | `cfg.ports.clear() # Removes all ports` |
+| `cfg.flows.clear()` | `cfg.flows.clear() # Removes all flows` |
 
 # Configuring FLows
 
 | **Code template** | **example** |
 | --- | --- |
-| {flow}.tx\_rx.port.tx\_name = {port name} | **# flow f1 will transmit from port p1** f1.tx\_rx.port.tx\_name = 'p1' |
-| {flow}.tx\_rx.port.rx\_name = {port name} | **# port p2 will receive from flow f1** f1.tx\_rx.port.rx\_name = 'p2' |
-| {flow}.size.fixed = {packet size} | **# flow f1 will send packets of fixed size 256 bytes** f1.size.fixed = 256 |
-| {flow}.duration.fixed\_packets.packets = {num packets} | **# flow f1 will send 1000 packets** f1.duration.fixed\_packets.packets = 1000 |
-| {flow}.rate.pps = {packets per second} | **# flow f1 will transmit at 100 packets per second** f1.rate.pps = 100 |
+| `{flow}.tx_rx.port.tx\_name = {port name}` | `# flow f1 will transmit from port p1`<br>`f1.tx\_rx.port.tx\_name = 'p1'` |
+| `{flow}.tx\_rx.port.rx\_name = {port name}` | `# port p2 will receive from flow f1`<br>`f1.tx\_rx.port.rx\_name = 'p2'` |
+| `{flow}.size.fixed = {packet size}` | `# flow f1 will send packets of fixed size 256 bytes`<br>`f1.size.fixed = 256` |
+| `{flow}.duration.fixed\_packets.packets = {num packets}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed\_packets.packets = 1000` |
+| `{flow}.rate.pps = {packets per second}` | `# flow f1 will transmit at 100 packets per second`<br>`f1.rate.pps = 100` |
 
 # Creating packets
 
 | **Code template** | **example** |
 | --- | --- |
-| {flow}.packet.ethernet().ipv4().udp() | **# flow f1 will transmit ethernet/ipv4/udp packets** eth1,ip1,udp1 = f1.packet.ethernet().ipv4().udp() |
-| {flow}.packet.header().header()... | **# flow f1 will transmit ethernet/ipv4/tcp packets** eth1,ip1,tcp1 = f1.packet.header().header().header()eth1.choice = 'ethernet'; eth1.ethernetip1.choice = 'ipv4'; ip1.ipv4tcp1.choice = 'tcp'; tcp1.tcp |
+| `{flow}.packet.ethernet().ipv4().udp()` | `# flow f1 will transmit ethernet/ipv4/udp packets`<br>`eth1,ip1,udp1 = f1.packet.ethernet().ipv4().udp()` |
+| `{flow}.packet.header().header()...` | `# flow f1 will transmit ethernet/ipv4/tcp packets`<br>`eth1,ip1,tcp1 = f1.packet.header().header().header()`<br>`eth1.choice = 'ethernet'; eth1.ethernet`<br>`ip1.choice = 'ipv4'; ip1.ipv4`<br>`tcp1.choice = 'tcp'; tcp1.tcp` |
 
 # Configuring packet headers
 

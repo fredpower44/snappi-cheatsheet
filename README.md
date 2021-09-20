@@ -6,14 +6,14 @@
 
 ## Creating config
 
-| **Code template** | **example** |
+| <div style="width:400px">**Code template**</div> | **example** |
 | --- | --- |
 | `api = snappi.api()cfg = api.config()` | `api = snappi.api() cfg = api.config()` |
 | `api = snappi.api(ext='ixnetwork') cfg = api.config()` | `api = snappi.api(ext='trex') cfg = api.config()` |
 
 ## Adding Ports/flows (or other snappi list objects)
 
-| **Code template** | **example** |
+| <div style="width:290px">**Code template**</div> | **example** |
 | --- | --- |
 | `cfg.ports.port().port().port()...` | `p1, p2 = cfg.ports.port(name='p1').port(name='p2')` |
 | `cfg.flows.flow().flow().flow()...` | `f2 = cfg.flows.flow(name='f1').flow(name='f2')[-1]` |

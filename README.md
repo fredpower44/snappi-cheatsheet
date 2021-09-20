@@ -6,10 +6,10 @@
 
 ## Creating config
 
-| **Code template**<img width=400/> | **example** |
+| **Code template**<img width=300/> | **example** |
 | --- | --- |
-| `api = snappi.api()cfg = api.config()` | `api = snappi.api() cfg = api.config()` |
-| `api = snappi.api(ext='ixnetwork') cfg = api.config()` | `api = snappi.api(ext='trex') cfg = api.config()` |
+| `api = snappi.api()`<br>`cfg = api.config()` | `api = snappi.api()`<br>`cfg = api.config()` |
+| `api = snappi.api(ext='ixnetwork')`<br>`cfg = api.config()` | `api = snappi.api(ext='trex')`<br>`cfg = api.config()` |
 
 ## Adding Ports/flows (or other snappi list objects)
 

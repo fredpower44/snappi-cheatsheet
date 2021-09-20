@@ -45,7 +45,7 @@
 | `{flow}.tx_rx.port.tx_name = {port name}` | `# flow f1 will transmit from port p1`<br>`f1.tx_rx.port.tx_name = 'p1'` |
 | `{flow}.tx_rx.port.rx_name = {port name}` | `# port p2 will receive from flow f1`<br>`f1.tx_rx.port.rx_name = 'p2'` |
 | `{flow}.size.fixed = {packet size}` | `# flow f1 will send packets of fixed size 256 bytes`<br>`f1.size.fixed = 256` |
-| `{flow}.duration.fixed_packets.packets = {num_packets}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed_packets.packets = 1000` |
+| `{flow}.duration.fixed_packets.packets = {num}` | `# flow f1 will send 1000 packets`<br>`f1.duration.fixed_packets.packets = 1000` |
 | `{flow}.rate.pps = {packets per second}` | `# flow f1 will transmit at 100 packets per second`<br>`f1.rate.pps = 100` |
 
 ## Creating packets

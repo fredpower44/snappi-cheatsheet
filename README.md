@@ -33,7 +33,7 @@
 
 | **Code template** | **example** |
 | --- | --- |
-| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1').port(name='p2')`<br>`cfg.ports.remove(2) # Removes p2` |
+| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1').port(name='p2')`<br>`cfg.ports.remove(2) # Removes p2                         ` |
 | cfg.flows.remove({index}) | cfg.flows.remove(0) **# Removes first flow** |
 | cfg.ports.clear() | cfg.ports.clear() **# Removes all ports** |
 | cfg.flows.clear() | cfg.flows.clear() **# Removes all flows** |

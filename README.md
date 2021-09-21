@@ -34,7 +34,7 @@
 
 | **Code template**<img width=275/> | **example** |
 | --- | --- |
-| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1').port(name='p2')`<br>`cfg.ports.remove(2) # Removes p2` |
+| `cfg.ports.remove({index})` | `cfg.ports.port(name='p0').port(name='p1')`<br>`cfg.ports.remove(1) # Removes p1` |
 | `cfg.flows.remove({index})` | `cfg.flows.remove(0) # Removes first flow` |
 | `cfg.ports.clear()` | `cfg.ports.clear() # Removes all ports` |
 | `cfg.flows.clear()` | `cfg.flows.clear() # Removes all flows` |
@@ -99,6 +99,6 @@
 
 | **Code template**<img width=275/> | **example** |
 | --- | --- |
-| `req = api.capture_request()`<br>`req.port_name = {port_name}`<br>`res = api.get_capture(req)` | `# res will contain pcap bytestream of packets captured on port p1`<br>`req = api.capture_request()`<br>`req.port_name = 'p1'`<br>`res = api.get_capture(req)` |
+| `req = api.capture_request()`<br>`req.port_name = {port_name}`<br>`res = api.get_capture(req)` | `# res will contain pcap bytestream of captures on port p1`<br>`req = api.capture_request()`<br>`req.port_name = 'p1'`<br>`res = api.get_capture(req)` |
 
 

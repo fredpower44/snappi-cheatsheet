@@ -1,10 +1,8 @@
-<p align="center">
+# **snappi** Cheat-Sheet Guide
 
-  # **snappi** Cheat-Sheet Guide
+![](https://github.com/open-traffic-generator/snappi/raw/main/snappi-logo.png)
 
-  ![](https://github.com/open-traffic-generator/snappi/raw/main/snappi-logo.png)
-  **[https://github.com/open-traffic-generator/snappi](https://github.com/open-traffic-generator/snappi)** 
-</p>
+**[https://github.com/open-traffic-generator/snappi](https://github.com/open-traffic-generator/snappi)** 
 
 
 ## Creating config
